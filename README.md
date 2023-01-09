@@ -102,6 +102,7 @@ resource "aws_instance" "dev5" {
 ```
 
 ### Criando variaveis do tipo map
+```
 variable "cdirs_acesso_remoto" {
   type = list
   
@@ -109,9 +110,11 @@ variable "cdirs_acesso_remoto" {
     "191.1.1.1/32", "191.1.1.2/32"
   ]
 }
+```
 
 ### Acessando variaveis do tipo map
 # Create a security group
+```
 resource "aws_security_group" "acesso_ssh" {
   name        = "acesso_ssh"
   description = "acesso_ssh"
@@ -128,9 +131,11 @@ resource "aws_security_group" "acesso_ssh" {
     Name = "ssh"
   }
 }
+```
 
 
 # Create a security group another provider/region
+```
 resource "aws_security_group" "acesso_ssh-us-east-2" {
     provider = aws.us-east-2
     name        = "acesso_ssh"
@@ -148,3 +153,4 @@ resource "aws_security_group" "acesso_ssh-us-east-2" {
         Name = "ssh"
     }
 }
+```
